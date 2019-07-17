@@ -4,10 +4,12 @@ import { RouterModule, Routes } from '@angular/router';
 
 
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
-import { AboutComponent } from './about/about.component';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { ProjectsComponent } from './projects/projects.component';
+import { HomeComponent } from './components/home/home.component';
+import { AboutComponent } from './components/about/about.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { ProjectsComponent } from './components/projects/projects.component';
+
+import { ProjectService } from './services/project.service'
 
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -23,7 +25,7 @@ const appRoutes: Routes = [
     HomeComponent,
     AboutComponent,
     PageNotFoundComponent,
-    ProjectsComponent
+    ProjectsComponent,
   ],
   imports: [
     BrowserModule,
@@ -32,7 +34,9 @@ const appRoutes: Routes = [
       { enableTracing: false } // <-- debugging purposes only
     )
   ],
-  providers: [],
+  providers: [
+    ProjectService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
